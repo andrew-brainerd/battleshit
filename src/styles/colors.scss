@@ -15,8 +15,10 @@ $primaryTextColor: whitesmoke;
 $accentColor: rgba(139, 196, 72, 0.7);
 $mutedColor: #c4bf48;
 
-$mainBackground: $primaryColor;
-$mainColor: #f2ecf9;
+$mainBackground: #d1d1d1;
+$mainColor: $primaryColor;
+$headerBackground: $primaryColor;
+$headerColor: #d1d1d1;
 
 $errorText: rgba(196, 110, 72, 1);
 $errorText-5: rgba(196, 110, 72, 0.5);
