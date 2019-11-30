@@ -1,9 +1,10 @@
 import { DEFAULT_SIZE } from '../constants/board';
+import { HIT_CELL, MISS_CELL } from '../actions/board';
 
 const generateCells = () => {
-  let cells = [];
+  let cells = {};
   for (let i = 0; i < DEFAULT_SIZE * DEFAULT_SIZE; i++) {
-    cells.push({ hasHit: false, hasMiss: false });
+    cells[i] = ({ hasHit: false, hasMiss: false });
   }
   return cells;
 };
@@ -14,6 +15,26 @@ const initialState = {
 
 export default function board (state = initialState, action) {
   switch (action.type) {
+    case HIT_CELL:
+      return {
+        ...state,
+        cells: {
+          ...state.cells,
+          [action.index]: {
+            hasHit: true
+          }
+        }
+      };
+    case MISS_CELL:
+      return {
+        ...state,
+        cells: {
+          ...state.cells,
+          [action.index]: {
+            hasMiss: true
+          }
+        }
+      };
     default:
       return state;
   }

@@ -3,6 +3,7 @@
 .boardCell {
   background: $cellBackground;
   border: 1px solid $cellBorder;
+  transition: 0.5s background;
 
   &.hit {
     background: $cellHitBackground;

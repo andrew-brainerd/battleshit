@@ -1,17 +1,21 @@
 import React from 'react';
-import { arrayOf, shape, bool, number } from 'prop-types';
-import BoardCell from './BoardCell/BoardCell';
+import { shape, bool, number } from 'prop-types';
+import { values } from 'ramda';
+import BoardCell from './BoardCell/container';
 import styles from './GameBoard.module.scss';
 
 const GameBoard = ({ cells }) => {
-  const boardSize = cells.length * 5;
-  const cellSize = boardSize / Math.sqrt(cells.length);
+  const cellList = values(cells);
+  const cellCount = cellList.length;
+  const boardSize = cellCount * 5;
+  const cellSize = boardSize / Math.sqrt(cellCount);
 
   return (
     <div className={styles.gameBoard} style={{ height: boardSize, width: boardSize }}>
-      {cells.map((cell, c) =>
+      {cellList.map((cell, c) =>
         <BoardCell
           key={c}
+          index={c}
           size={cellSize}
           {...cell}
         />
@@ -21,10 +25,10 @@ const GameBoard = ({ cells }) => {
 };
 
 GameBoard.propTypes = {
-  cells: arrayOf(shape({
+  cells: shape({
     hasHit: bool,
     hasMiss: bool
-  })),
+  }),
   width: number
 };
 
