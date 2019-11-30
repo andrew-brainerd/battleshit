@@ -1,0 +1,18 @@
+import { GAME_BOARD_VIEW } from "../constants/game";
+
+export const STARTING_NEW_GAME = 'STARTING_NEW_GAME';
+export const NEW_GAME_STARTED = 'NEW_GAME_STARTED';
+export const SET_CURRENT_VIEW = 'SET_CURRENT_VIEW';
+
+export const startingNewGame = { type: STARTING_NEW_GAME };
+
+export const newGameStarted = { type: NEW_GAME_STARTED };
+
+export const setCurrentView = view => ({ type: SET_CURRENT_VIEW, view });
+
+export const startNewGame = () => async dispatch => {
+  dispatch(startingNewGame);
+  setTimeout(() => {
+    dispatch(setCurrentView(GAME_BOARD_VIEW));
+  }, 2500);
+};

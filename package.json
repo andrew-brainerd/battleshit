@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "connected-react-router": "^6.6.1",
+    "lodash.memoize": "^4.1.2",
     "node-sass": "^4.13.0",
     "ramda": "^0.26.1",
     "react": "^16.12.0",

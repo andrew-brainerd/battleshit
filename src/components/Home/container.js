@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { navTo } from '../../actions/routing';
+import { getCurrentView } from '../../selectors/game';
 import Home from './Home';
 
-const mapDispatchToProps = dispatch => ({
-  navTo: path => dispatch(navTo(path))
+const mapStateToProps = state => ({
+  currentView: getCurrentView(state)
 });
 
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);

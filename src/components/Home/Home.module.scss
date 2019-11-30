@@ -9,7 +9,7 @@
   margin: 5px;
 
   h1 {
-    // font-family: $mainFontStyle;
+    font-family: $mainFontFamily;
     font-size: 5em;
     margin: 50px auto;
     text-align: center;
@@ -21,31 +21,6 @@
     img {
       text-align: center;
       width: 300px;
-    }
-  }
-
-  .buttonContainer {
-    display: flex;
-    justify-content: center;
-    margin: 50px 0;
-
-    .button {
-      background: $secondaryColor;
-      border-color: $secondaryColorLight;
-      color: $primaryTextColor;
-      font-size: 2em;
-      padding: 40px 0;
-      text-align: center;
-      width: 250px;
-
-      &:hover {
-        background: $secondaryColorLight;
-        border-color: $secondaryColor;
-      }
-
-      .buttonText {
-        font-style: italic;
-      }
     }
   }
 }

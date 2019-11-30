@@ -11,11 +11,7 @@ export const missCell = index => ({ type: MISS_CELL, index });
 export const fireCell = (cellIndex, playerNum = 1) => async dispatch => {
   const { hasShip } = getCellByIndex(cellIndex, playerNum);
 
-  console.log(`Fire Cell ${cellIndex} for Player ${playerNum}`);
-
-  if (hasShip) {
-    dispatch(hitCell(cellIndex));
-  } else {
-    dispatch(missCell(cellIndex));
-  }
+export const fireCell = cellIndex => async dispatch => {
+  const { hasShip } = getCellByIndex(cellIndex);
+  hasShip ? dispatch(hitCell(cellIndex)) : dispatch(missCell(cellIndex));
 };
