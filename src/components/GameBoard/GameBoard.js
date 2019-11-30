@@ -4,10 +4,18 @@ import BoardCell from './BoardCell/BoardCell';
 import styles from './GameBoard.module.scss';
 
 const GameBoard = ({ cells }) => {
-  const size = cells.length * 5;
+  const boardSize = cells.length * 5;
+  const cellSize = boardSize / Math.sqrt(cells.length);
+
   return (
-    <div className={styles.gameBoard} style={{ height: size, width: size }}>
-      {cells.map((cell, c) => <BoardCell key={c} {...cell} />)}
+    <div className={styles.gameBoard} style={{ height: boardSize, width: boardSize }}>
+      {cells.map((cell, c) =>
+        <BoardCell
+          key={c}
+          size={cellSize}
+          {...cell}
+        />
+      )}
     </div>
   );
 };

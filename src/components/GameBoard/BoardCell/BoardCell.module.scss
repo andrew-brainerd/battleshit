@@ -2,10 +2,7 @@
 
 .boardCell {
   background: $cellBackground;
-  border: 1px solid $primaryColor;
-  height: 50px;
-  transition: 0.3s background;
-  width: 50px;
+  border: 1px solid $cellBorder;
 
   &.hit {
     background: $cellHitBackground;
