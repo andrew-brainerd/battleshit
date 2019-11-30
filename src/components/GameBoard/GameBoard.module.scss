@@ -1,0 +1,7 @@
+@import '../../styles/colors.scss';
+
+.gameBoard {
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
+}

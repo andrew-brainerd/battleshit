@@ -1,0 +1,17 @@
+@import '../../../styles/colors.scss';
+
+.boardCell {
+  background: $cellBackground;
+  border: 1px solid $primaryColor;
+  height: 50px;
+  transition: 0.3s background;
+  width: 50px;
+
+  &.hit {
+    background: $cellHitBackground;
+  }
+
+  &.miss {
+    background: $cellMissBackground;
+  }
+}
