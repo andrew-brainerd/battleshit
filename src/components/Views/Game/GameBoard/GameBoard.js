@@ -8,7 +8,6 @@ const GameBoard = ({ cells }) => {
   const boardSize = 500;
   const cellList = values(cells);
   const cellCount = cellList.length;
-  const boardSize = cellCount * 5;
   const cellSize = boardSize / Math.sqrt(cellCount);
 
   return (

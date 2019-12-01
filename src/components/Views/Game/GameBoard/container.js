@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getBoardCells } from '../../selectors/board';
+import { getBoardCells } from '../../../../selectors/board';
 import GameBoard from './GameBoard';
 
 const mapStateToProps = state => ({

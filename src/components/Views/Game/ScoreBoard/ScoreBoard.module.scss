@@ -1,0 +1,15 @@
+@import '../../../../styles/colors.scss';
+
+.scoreBoard {
+  margin: 20px;
+  min-width: 200px;
+
+  .remainingShots, .remainingShips {
+    display: block;
+    margin: 10px;
+
+    .value {
+      font-size: 1.3em;
+    }
+  }
+}

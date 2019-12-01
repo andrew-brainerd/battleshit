@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fireCell } from '../../../actions/board';
+import { fireCell } from '../../../../../actions/board';
 import BoardCell from './BoardCell';
 
 const mapDispatchToProps = dispatch => ({

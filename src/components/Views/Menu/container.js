@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { startNewGame } from '../../actions/game';
+import { startNewGame } from '../../../actions/game';
 import Menu from './Menu';
 
 const mapDispatchToProps = dispatch => ({
