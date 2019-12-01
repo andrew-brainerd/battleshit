@@ -5,6 +5,7 @@ import BoardCell from './BoardCell/container';
 import styles from './GameBoard.module.scss';
 
 const GameBoard = ({ cells }) => {
+  const boardSize = 500;
   const cellList = values(cells);
   const cellCount = cellList.length;
   const boardSize = cellCount * 5;
