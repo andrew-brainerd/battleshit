@@ -4,7 +4,8 @@ import {
   HIT_CELL,
   MISS_CELL,
   SET_REMAINING_SHOTS,
-  SET_REMAINING_SHIPS
+  SET_REMAINING_SHIPS,
+  SET_GAME_OVER
 } from '../actions/board';
 
 const generateCells = size => {
@@ -19,7 +20,8 @@ const generateCells = size => {
 const initialState = {
   cells: generateCells(6),
   numRemainingShips: ships.length,
-  numRemainingShots: 10
+  numRemainingShots: 20,
+  isGameOver: false
 };
 
 export default function board(state = initialState, action) {
@@ -59,6 +61,12 @@ export default function board(state = initialState, action) {
         ...state,
         numRemainingShips: action.ships
       };
+    case SET_GAME_OVER:
+      return {
+        ...state,
+        isGameOver: true,
+        gameResult: action.result
+      }
     default:
       return state;
   }

@@ -4,12 +4,39 @@
   margin: 20px;
   min-width: 200px;
 
-  .remainingShots, .remainingShips {
+  .remainingShots,
+  .remainingShips {
     display: block;
     margin: 10px;
 
     .value {
       font-size: 1.3em;
+    }
+  }
+
+  .gameOverContainer {
+    background: $primaryColor;
+    border-radius: 5px;
+    border: 1px solid $primaryColor;
+    font-size: 1.2em;
+    margin-top: 25px;
+    padding: 25px 10px;
+    transition: 0.5s all ease;
+
+    .gameOver {
+      color: $cellHitBackground;
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    .gameResult {
+      &.win {
+        color: $accentColor;
+      }
+
+      &.lose {
+        color: $errorText;
+      }
     }
   }
 }
