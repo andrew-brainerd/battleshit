@@ -1,4 +1,12 @@
+@import '../../../styles/sizing.scss';
+
 .game {
   display: flex;
   margin: auto;
+}
+
+@media screen and (max-width: $mobileWidth) {
+ .game {
+   flex-direction: column-reverse;
+ } 
 }

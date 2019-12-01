@@ -1,11 +1,11 @@
 import React from 'react';
-import { shape, bool, number } from 'prop-types';
+import { shape, bool, string } from 'prop-types';
 import { values } from 'ramda';
 import BoardCell from './BoardCell/container';
 import styles from './GameBoard.module.scss';
 
-const GameBoard = ({ cells }) => {
-  const boardSize = 500;
+const GameBoard = ({ cells, isMobile }) => {
+  const boardSize = isMobile ? 300: 500;
   const cellList = values(cells);
   const cellCount = cellList.length;
   const cellSize = boardSize / Math.sqrt(cellCount);
@@ -30,9 +30,12 @@ const GameBoard = ({ cells }) => {
 GameBoard.propTypes = {
   cells: shape({
     hasHit: bool,
-    hasMiss: bool
+    hasMiss: bool,
+    hasShip: bool,
+    shipName: string,
+    hasMissedHit: bool
   }),
-  width: number
+  isMobile: bool
 };
 
 export default GameBoard;
