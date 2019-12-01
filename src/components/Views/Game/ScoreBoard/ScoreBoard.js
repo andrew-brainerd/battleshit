@@ -28,14 +28,11 @@ const ScoreBoard = ({
           ].join(' ')}>
             You {gameResult}
           </div>
-            <Button
-              className={styles.playAgain}
-              text={'Play Again'}
-              onClick={() => {
-                console.log('Play Again');
-                startNewGame();
-              }}
-            />
+          <Button
+            className={styles.playAgain}
+            text={'Play Again'}
+            onClick={startNewGame}
+          />
         </div>}
     </div>
   );

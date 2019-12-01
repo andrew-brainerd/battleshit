@@ -12,12 +12,13 @@ import {
 
 const initialState = {
   cells: {},
+  fired: [],
   numRemainingShips: ships.length,
   numRemainingShots: DEFAULT_SHOTS,
   isGameOver: false
 };
 
-export default function board(state = initialState, action) {
+export default function board (state = initialState, action) {
   switch (action.type) {
     case SHIPS_PLACED:
       return {
@@ -32,7 +33,11 @@ export default function board(state = initialState, action) {
           [action.index]: {
             hasHit: true
           }
-        }
+        },
+        fired: [
+          ...state.fired,
+          action.index
+        ]
       };
     case MISS_CELL:
       return {
@@ -42,7 +47,11 @@ export default function board(state = initialState, action) {
           [action.index]: {
             hasMiss: true
           }
-        }
+        },
+        fired: [
+          ...state.fired,
+          action.index
+        ]
       };
     case SET_REMAINING_SHOTS:
       return {
@@ -64,11 +73,12 @@ export default function board(state = initialState, action) {
       return {
         ...state,
         cells: generateEmptyCells(DEFAULT_SIZE),
+        fired: [],
         numRemainingShips: ships.length,
         numRemainingShots: DEFAULT_SHOTS,
         isGameOver: false,
         gameResult: null
-      }
+      };
     default:
       return state;
   }

@@ -2,6 +2,7 @@ import { keys } from 'ramda';
 import { getBoardPositions } from '../utils/board';
 import {
   getBoardCells,
+  deriveRemainingBoardCells,
   isGameOver,
   getRemainingShips,
   getRemainingShots
@@ -76,7 +77,7 @@ export const fireCell = cellIndex => async (dispatch, getState) => {
 };
 
 const fireAllCells = () => async (dispatch, getState) => {
-  keys(getBoardCells(getState())).forEach((cell, c) => {
-    setTimeout(() => dispatch(fireCell(c)), 500);
-  });
+  keys(deriveRemainingBoardCells(getState())).forEach(cell =>
+    setTimeout(() => dispatch(fireCell(parseInt(cell))), 500)
+  );
 };

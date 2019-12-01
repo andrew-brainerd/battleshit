@@ -3,7 +3,7 @@ import {
   getRemainingShots,
   getRemainingShips,
   isGameOver,
-  getGameResult 
+  getGameResult
 } from '../../../../selectors/board';
 import { startNewGame } from '../../../../actions/game';
 import ScoreBoard from './ScoreBoard';
