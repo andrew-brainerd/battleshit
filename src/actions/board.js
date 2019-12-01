@@ -16,6 +16,7 @@ export const MISS_CELL = 'MISS_CELL';
 export const SET_REMAINING_SHOTS = 'SET_REMAINING_SHOTS';
 export const SET_REMAINING_SHIPS = 'SET_REMAINING_SHIPS';
 export const SET_GAME_OVER = 'SET_GAME_OVER';
+export const CLEAR_BOARD = 'CLEAR_BOARD';
 
 export const placingShips = { type: PLACING_SHIPS };
 
@@ -30,6 +31,8 @@ export const setRemainingShots = shots => ({ type: SET_REMAINING_SHOTS, shots })
 export const setRemainingShips = ships => ({ type: SET_REMAINING_SHIPS, ships });
 
 export const setGameOver = result => ({ type: SET_GAME_OVER, result });
+
+export const clearBoard = ({ type: CLEAR_BOARD });
 
 export const placeShips = () => async (dispatch, getState) => {
   dispatch(placingShips);

@@ -1,4 +1,6 @@
-export const DEFAULT_SIZE = 10;
+export const DEFAULT_SIZE = 6;
+
+export const DEFAULT_SHOTS = 20;
 
 export const ships = [
   {

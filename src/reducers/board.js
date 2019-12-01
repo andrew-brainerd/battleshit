@@ -1,26 +1,19 @@
-import { DEFAULT_SIZE, ships } from '../constants/board';
+import { generateEmptyCells } from '../utils/board';
+import { DEFAULT_SIZE, DEFAULT_SHOTS, ships } from '../constants/board';
 import {
   SHIPS_PLACED,
   HIT_CELL,
   MISS_CELL,
   SET_REMAINING_SHOTS,
   SET_REMAINING_SHIPS,
-  SET_GAME_OVER
+  SET_GAME_OVER,
+  CLEAR_BOARD
 } from '../actions/board';
 
-const generateCells = size => {
-  const boardSize = size || DEFAULT_SIZE;
-  const cells = {};
-  for (let i = 0; i < boardSize * boardSize; i++) {
-    cells[i] = ({ hasHit: false, hasMiss: false });
-  }
-  return cells;
-};
-
 const initialState = {
-  cells: generateCells(6),
+  cells: {},
   numRemainingShips: ships.length,
-  numRemainingShots: 20,
+  numRemainingShots: DEFAULT_SHOTS,
   isGameOver: false
 };
 
@@ -66,6 +59,15 @@ export default function board(state = initialState, action) {
         ...state,
         isGameOver: true,
         gameResult: action.result
+      };
+    case CLEAR_BOARD:
+      return {
+        ...state,
+        cells: generateEmptyCells(DEFAULT_SIZE),
+        numRemainingShips: ships.length,
+        numRemainingShots: DEFAULT_SHOTS,
+        isGameOver: false,
+        gameResult: null
       }
     default:
       return state;

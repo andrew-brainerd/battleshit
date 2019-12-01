@@ -15,21 +15,22 @@
   }
 
   .gameOverContainer {
-    background: $primaryColor;
+    background: $modalBackground;
     border-radius: 5px;
     border: 1px solid $primaryColor;
-    font-size: 1.2em;
     margin-top: 25px;
-    padding: 25px 10px;
+    padding: 70px 10px;
     transition: 0.5s all ease;
 
     .gameOver {
       color: $cellHitBackground;
-      font-size: 1.2em;
+      font-size: 2.5em;
       margin-bottom: 10px;
     }
 
     .gameResult {
+      font-size: 2em;
+
       &.win {
         color: $accentColor;
       }
@@ -37,6 +38,11 @@
       &.lose {
         color: $errorText;
       }
+    }
+
+    .playAgain {
+      font-size: 1.5em;
+      margin-top: 30px;
     }
   }
 }
