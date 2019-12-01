@@ -14,6 +14,7 @@ export const SHIPS_PLACED = 'SHIPS_PLACED';
 export const FIRE_CELL = 'FIRE_CELL';
 export const HIT_CELL = 'HIT_CELL';
 export const MISS_CELL = 'MISS_CELL';
+export const MISSED_HIT_CELL= 'MISSED_HIT_CELL';
 export const SET_REMAINING_SHOTS = 'SET_REMAINING_SHOTS';
 export const SET_REMAINING_SHIPS = 'SET_REMAINING_SHIPS';
 export const SET_GAME_OVER = 'SET_GAME_OVER';
@@ -25,6 +26,8 @@ export const hitCell = index => ({ type: HIT_CELL, index });
 
 export const missCell = index => ({ type: MISS_CELL, index });
 
+export const missedHitCell = index => ({ type: MISSED_HIT_CELL, index });
+
 export const shipsPlaced = gameBoard => ({ type: SHIPS_PLACED, gameBoard });
 
 export const setRemainingShots = shots => ({ type: SET_REMAINING_SHOTS, shots });
@@ -33,7 +36,7 @@ export const setRemainingShips = ships => ({ type: SET_REMAINING_SHIPS, ships })
 
 export const setGameOver = result => ({ type: SET_GAME_OVER, result });
 
-export const clearBoard = ({ type: CLEAR_BOARD });
+export const clearBoard = { type: CLEAR_BOARD };
 
 export const placeShips = () => async (dispatch, getState) => {
   dispatch(placingShips);
@@ -72,7 +75,7 @@ export const fireCell = cellIndex => async (dispatch, getState) => {
     }
   } else {
     const { hasShip } = getBoardCells(getState())[cellIndex];
-    hasShip ? dispatch(hitCell(cellIndex)) : dispatch(missCell(cellIndex));
+    hasShip ? dispatch(missedHitCell(cellIndex)) : dispatch(missCell(cellIndex));
   }
 };
 

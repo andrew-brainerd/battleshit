@@ -12,4 +12,8 @@
   &.miss {
     background: $cellMissBackground;
   }
+
+  &.missedHit {
+    background: $errorText;
+  }
 }

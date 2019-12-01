@@ -4,6 +4,7 @@ import {
   SHIPS_PLACED,
   HIT_CELL,
   MISS_CELL,
+  MISSED_HIT_CELL,
   SET_REMAINING_SHOTS,
   SET_REMAINING_SHIPS,
   SET_GAME_OVER,
@@ -18,7 +19,7 @@ const initialState = {
   isGameOver: false
 };
 
-export default function board (state = initialState, action) {
+export default function board(state = initialState, action) {
   switch (action.type) {
     case SHIPS_PLACED:
       return {
@@ -52,6 +53,16 @@ export default function board (state = initialState, action) {
           ...state.fired,
           action.index
         ]
+      };
+    case MISSED_HIT_CELL:
+      return {
+        ...state,
+        cells: {
+          ...state.cells,
+          [action.index]: {
+            hasMissedHit: true
+          }
+        }
       };
     case SET_REMAINING_SHOTS:
       return {
