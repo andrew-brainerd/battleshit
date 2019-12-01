@@ -18,6 +18,7 @@ const BoardCell = ({ index, size, hasMiss, hasHit, fire }) => {
 };
 
 BoardCell.propTypes = {
+  index: number.isRequired,
   size: number.isRequired,
   hasHit: bool,
   hasMiss: bool,

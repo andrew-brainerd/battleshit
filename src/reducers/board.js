@@ -1,9 +1,10 @@
 import { DEFAULT_SIZE } from '../constants/board';
-import { HIT_CELL, MISS_CELL } from '../actions/board';
+import { SHIPS_PLACED, HIT_CELL, MISS_CELL } from '../actions/board';
 
-const generateCells = () => {
-  let cells = {};
-  for (let i = 0; i < DEFAULT_SIZE * DEFAULT_SIZE; i++) {
+const generateCells = size => {
+  const boardSize = size || DEFAULT_SIZE;
+  const cells = {};
+  for (let i = 0; i < boardSize * boardSize; i++) {
     cells[i] = ({ hasHit: false, hasMiss: false });
   }
   return cells;
@@ -15,6 +16,11 @@ const initialState = {
 
 export default function board (state = initialState, action) {
   switch (action.type) {
+    case SHIPS_PLACED:
+      return {
+        ...state,
+        cells: action.gameBoard
+      };
     case HIT_CELL:
       return {
         ...state,

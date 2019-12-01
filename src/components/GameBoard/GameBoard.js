@@ -11,7 +11,10 @@ const GameBoard = ({ cells }) => {
   const cellSize = boardSize / Math.sqrt(cellCount);
 
   return (
-    <div className={styles.gameBoard} style={{ height: boardSize, width: boardSize }}>
+    <div
+      className={styles.gameBoard}
+      style={{ height: boardSize, width: boardSize }}
+    >
       {cellList.map((cell, c) =>
         <BoardCell
           key={c}

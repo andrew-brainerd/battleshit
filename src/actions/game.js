@@ -1,4 +1,5 @@
-import { GAME_BOARD_VIEW } from "../constants/game";
+import { GAME_BOARD_VIEW } from '../constants/game';
+import { placeShips } from './board';
 
 export const STARTING_NEW_GAME = 'STARTING_NEW_GAME';
 export const NEW_GAME_STARTED = 'NEW_GAME_STARTED';
@@ -12,7 +13,9 @@ export const setCurrentView = view => ({ type: SET_CURRENT_VIEW, view });
 
 export const startNewGame = () => async dispatch => {
   dispatch(startingNewGame);
-  setTimeout(() => {
-    dispatch(setCurrentView(GAME_BOARD_VIEW));
-  }, 2500);
+  await dispatch(placeShips());
+  dispatch(setCurrentView(GAME_BOARD_VIEW));
+  // setTimeout(() => {
+  //   dispatch(setCurrentView(GAME_BOARD_VIEW));
+  // }, 2500);
 };
